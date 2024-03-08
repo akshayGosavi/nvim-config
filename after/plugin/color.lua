@@ -1,6 +1,6 @@
-function colorMyNvim(color)
+function ColorMyNvim(color)
 	color = color or 'rose-pine'
 	vim.cmd.colorscheme(color)
 end
 
-colorMyNvim()
+ColorMyNvim()
