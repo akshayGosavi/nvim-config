@@ -13,5 +13,6 @@ require('mason-lspconfig').setup({
   ensure_installed = {'tsserver', 'bashls', 'jdtls', 'lua_ls', 'lemminx'},
   handlers = {
     lsp_zero.default_setup,
+    jdtls = lsp_zero.noop,
   }
 })
