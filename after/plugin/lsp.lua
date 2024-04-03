@@ -23,3 +23,14 @@ require('mason-lspconfig').setup({
     jdtls = lsp_zero.noop,
   }
 })
+
+require'lspconfig'.lua_ls.setup {
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { 'vim' }
+      }
+    }
+  }
+}
+
