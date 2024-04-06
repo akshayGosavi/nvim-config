@@ -16,6 +16,7 @@ Plugins installed
     - [luasnip](https://github.com/L3MON4D3/LuaSnip)
     - [cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
     - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+- [which-key](https://github.com/folke/which-key.nvim)
 - [catppuccin](https://github.com/catppuccin/nvim)
 - [rose-pine](https://github.com/rose-pine/neovim)
 
