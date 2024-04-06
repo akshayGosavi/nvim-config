@@ -70,8 +70,31 @@ local function jdtls_on_attach(client, bufnr)
     enable_codelenses(bufnr)
   end
 
+  local bufopts = { noremap = true, silent = true, buffer = bufnr }
   local opts = {buffer = bufnr}
-  vim.keymap.set('n', '<A-o>', "<cmd>lua require('jdtls').organize_imports()<CR>", opts)
+  vim.keymap.set('n', '<A-o>', "<cmd>lua require('jdtls').organize_imports()<CR>", bufopts)
+  vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+  vim.keymap.set('n', '<space>K', vim.lsp.buf.signature_help, bufopts)
+  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+  vim.keymap.set('n', '<F2>', vim.lsp.buf.rename, bufopts)
+  vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
+  vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
+  vim.keymap.set('n', '<space>f', vim.lsp.buf.format, bufopts)
+  vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+  vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+  vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+  vim.keymap.set('n', '<leader>ds', require('telescope.builtin').lsp_document_symbols, bufopts)
+  vim.keymap.set('n', '<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, bufopts)
+  -- using vim's builtin lsp
+  --vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+  --vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+  --vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+  --vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, bufopts)
+  -- same keymaps but with telescope
+  vim.keymap.set('n', 'gd', require('telescope.builtin').lsp_definitions, bufopts)
+  vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references , bufopts)
+  vim.keymap.set('n', 'gi', require('telescope.builtin').lsp_implementations, bufopts)
+  vim.keymap.set('n', 'gt', require('telescope.builtin').lsp_type_definitions, bufopts)
 end
 
 -- this function will execute everytime you open a Java file
@@ -136,6 +159,12 @@ local function jdtls_setup(event)
         'java.util.Objects.requireNonNull',
         'java.util.Objects.requireNonNullElse',
         'org.mockito.Mockito.*',
+      },
+      filteredTypes = {
+        'com.sun.*',
+        'java.awt.*',
+        'jdk.*',
+        'sun.*',
       }
     },
     contentProvider = {
@@ -170,6 +199,7 @@ local function jdtls_setup(event)
     }
   }
 
+  jdtls.setup.add_commands();
   jdtls.start_or_attach(config)
 end
 
