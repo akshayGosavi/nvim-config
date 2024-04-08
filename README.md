@@ -20,6 +20,8 @@ Plugins installed
 - [todo-comments](https://github.com/folke/todo-comments.nvim)
 - [neogen](https://github.com/danymat/neogen.nvim) - annotation generator (using for Javadocs)
 - [nvim-autopairs](https://github.com/windwp/nvim-autopairs.nvim)
+- mini.nvim
+    - [mini.comments](https://github.com/echasnovski/mini.comment)
 - [catppuccin](https://github.com/catppuccin/nvim)
 - [rose-pine](https://github.com/rose-pine/neovim)
 
