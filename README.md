@@ -18,6 +18,7 @@ Plugins installed
     - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - [which-key](https://github.com/folke/which-key.nvim)
 - [todo-comments](https://github.com/folke/todo-comments.nvim)
+- [neogen](https://github.com/danymat/neogen.nvim) - annotation generator (using for Javadocs)
 - [catppuccin](https://github.com/catppuccin/nvim)
 - [rose-pine](https://github.com/rose-pine/neovim)
 
