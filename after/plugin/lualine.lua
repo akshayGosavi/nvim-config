@@ -1,5 +1,6 @@
 require('lualine').setup({
   options = {
+    theme = 'catppuccin',
     disabled_filetypes = {
       statusline = { 'NvimTree' },
     },
